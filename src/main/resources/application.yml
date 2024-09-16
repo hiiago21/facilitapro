@@ -1,0 +1,28 @@
+spring:
+    application:
+        name: facilitapro
+    datasource:
+        driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+        url: jdbc:sqlserver://localhost:1433;databaseName=master;encrypt=true;trustServerCertificate=true
+        username: 'sa'
+        password: 'senha123@'
+        initialize: true
+        testOnBorrow: true
+        testWhileIdle: true
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 60000
+        validationQuery: SELECT 1
+        hikari:
+            connection-init-sql: set nocount off
+            connection-test-query: SELECT 1
+        jpa:
+            database: SQL_SERVER
+            hibernate:
+                ddl-auto: update
+            show-sql: true
+
+
+
+security:
+    ignore:
+        urls: "/management/**,/actuator/**,/v3/api-docs/**,/swagger-ui*/**,/swagger-resources/**"
